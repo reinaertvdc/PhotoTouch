@@ -1,10 +1,59 @@
 ﻿<s:SurfaceWindow x:Class="PhotoTouch.SurfaceWindow1"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:s="http://schemas.microsoft.com/surface/2008"
-    Title="PhotoTouch"
-    >
-  <Grid>
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:s="http://schemas.microsoft.com/surface/2008"
+                 xmlns:local="clr-namespace:PhotoTouch"
+                 Title="PhotoTouch">
+    
+    <!-- Resources for this window -->
+    <s:SurfaceWindow.Resources>
+        <!-- Icon for the close button -->
+        <Grid x:Key="CloseIcon">
 
-  </Grid>
+        </Grid>
+
+        <!-- Icon for the draw button -->
+        <Grid x:Key="DrawIcon">
+            
+        </Grid>
+
+        <!-- Icon for the erase button -->
+        <Grid x:Key="EraseIcon">
+
+        </Grid>
+
+        <!-- Icon for the move button -->
+        <Grid x:Key="MoveIcon">
+            
+        </Grid>
+    </s:SurfaceWindow.Resources>
+    
+    <s:ScatterView>
+        <!-- TODO move to resources and create dynamically -->
+        <s:ScatterViewItem Height="300"
+                           Width="400"
+                           MinWidth="300"
+                           MaxWidth="800">
+            <!-- Structure of a photo frame -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8" />
+                    <RowDefinition />
+                    <RowDefinition Height="48" />
+                    <RowDefinition Height="8" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition Width="8" />
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="8" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </s:ScatterViewItem>
+    </s:ScatterView>
 </s:SurfaceWindow>
