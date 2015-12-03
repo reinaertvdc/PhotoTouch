@@ -34,8 +34,8 @@
                            Width="400"
                            MinWidth="300"
                            MaxWidth="800">
-            <!-- Structure of a photo frame -->
             <Grid>
+                <!-- Structure of a photo frame -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="8" />
                     <RowDefinition />
@@ -53,6 +53,27 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="8" />
                 </Grid.ColumnDefinitions>
+                
+                <!-- Button to set the current mode of the photo frame -->
+                <s:SurfaceButton Name="ButtonMode"
+                                 Grid.Row="2"
+                                 Grid.Column="2">
+                    
+                </s:SurfaceButton>
+
+                <!-- TODO what does this button do? -->
+                <s:SurfaceButton Name="ButtonOther"
+                                 Grid.Row="2"
+                                 Grid.Column="4">
+
+                </s:SurfaceButton>
+
+                <!-- Button to close the photo frame -->
+                <s:SurfaceButton Name="ButtonClose"
+                                 Grid.Row="2"
+                                 Grid.Column="6">
+
+                </s:SurfaceButton>
             </Grid>
         </s:ScatterViewItem>
     </s:ScatterView>
