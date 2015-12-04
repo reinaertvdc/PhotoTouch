@@ -99,5 +99,57 @@ namespace PhotoTouch
         {
             //TODO: disable audio, animations here
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        void OnFrameModeChanged(object sender, RoutedEventArgs e)
+        {
+            ScatterViewItem frame = (ScatterViewItem)((Grid)((SurfaceButton)sender).Parent).Parent;
+
+            SurfaceInkCanvas canvas = (SurfaceInkCanvas)frame.FindName("Canvas");
+            SurfaceButton buttonMode = (SurfaceButton)frame.FindName("ButtonMode");
+            SurfaceButton buttonOther = (SurfaceButton)frame.FindName("ButtonOther");
+            SurfaceButton buttonClose = (SurfaceButton)frame.FindName("ButtonClose");
+
+            if (canvas.IsHitTestVisible)
+            {
+                canvas.IsHitTestVisible = false;
+                buttonMode.Content = FindResource("DrawIcon");
+            }
+            else
+            {
+                canvas.IsHitTestVisible = true;
+                buttonMode.Content = FindResource("MoveIcon");
+            }
+        }
     }
 }

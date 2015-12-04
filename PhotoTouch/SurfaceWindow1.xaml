@@ -9,12 +9,16 @@
     <s:SurfaceWindow.Resources>
         <!-- Icon for the close button -->
         <Grid x:Key="CloseIcon">
-            
+            <Path Stretch="Fill"
+                            Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
+                            Data="F1 M 0.161144,1.57529L 1.57536,0.161083L 9.00003,7.58576L 16.4247,0.161139L 17.8389,1.57535L 10.4142,8.99997L 17.8388,16.4245L 16.4246,17.8387L 9.00004,10.4142L 1.57542,17.8388L 0.161202,16.4246L 7.58582,8.99997L 0.161144,1.57529 Z " />
         </Grid>
 
         <!-- Icon for the draw button -->
         <Grid x:Key="DrawIcon">
-            
+            <Path Stretch="Fill"
+                            Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}"
+                            Data="F1 M 5.82884,16.4138L 0.172017,17.828L 1.58624,12.1711L 13.5853,0.171997L 17.828,4.41467L 5.82884,16.4138 Z M 2.50753,13.0924L 1.98912,15.1661L 2.83398,16.0109L 4.90755,15.4925L 2.50753,13.0924 Z " />
         </Grid>
 
         <!-- Icon for the erase button -->
@@ -24,7 +28,9 @@
 
         <!-- Icon for the move button -->
         <Grid x:Key="MoveIcon">
-            
+            <Path Stretch="Fill" 
+                  Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
+                  Data="F1 M 8.99998,-8.2016e-005L 12,2.99996L 9.99998,2.99996L 9.99998,7.99992L 15,7.99996L 15,6L 18,9L 15,12L 15,9.99996L 9.99998,9.99992L 9.99998,15.0001L 12,15.0001L 8.99996,18.0001L 5.99996,15.0001L 7.99998,15.0001L 7.99998,9.99992L 2.99999,9.99996L 2.99998,12L -1.90735e-005,8.99996L 3.00002,5.99996L 3.00001,7.99996L 7.99998,7.99992L 7.99998,2.99992L 5.99998,2.99992L 8.99998,-8.2016e-005 Z " />
         </Grid>
     </s:SurfaceWindow.Resources>
     
@@ -60,7 +66,7 @@
                       Grid.ColumnSpan="7"
                       Grid.Column="1"
                       Grid.RowSpan="1">
-                    <s:SurfaceInkCanvas />
+                    <s:SurfaceInkCanvas Name="Canvas" />
                 </Grid>
                 
                 
@@ -68,26 +74,23 @@
                 <s:SurfaceButton Name="ButtonMode"
                                  Grid.Row="3"
                                  Grid.Column="2"
-                                 Padding="4">
-                    <Grid>
-                        <Path Stretch="Fill"
-                              Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}"
-                              Data="F1 M 5.82884,16.4138L 0.172017,17.828L 1.58624,12.1711L 13.5853,0.171997L 17.828,4.41467L 5.82884,16.4138 Z M 2.50753,13.0924L 1.98912,15.1661L 2.83398,16.0109L 4.90755,15.4925L 2.50753,13.0924 Z " />
-                    </Grid>
+                                 Padding="4"
+                                 Click="OnFrameModeChanged">
                 </s:SurfaceButton>
 
                 <!-- TODO what does this button do? -->
                 <s:SurfaceButton Name="ButtonOther"
                                  Grid.Row="3"
-                                 Grid.Column="4">
+                                 Grid.Column="4"
+                                 Padding="4">
 
                 </s:SurfaceButton>
 
                 <!-- Button to close the photo frame -->
                 <s:SurfaceButton Name="ButtonClose"
                                  Grid.Row="3"
-                                 Grid.Column="6">
-
+                                 Grid.Column="6"
+                                 Padding="4">
                 </s:SurfaceButton>
             </Grid>
         </s:ScatterViewItem>
