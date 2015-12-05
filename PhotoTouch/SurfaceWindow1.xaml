@@ -6,9 +6,69 @@
                  Title="PhotoTouch">
 
     <s:SurfaceWindow.Resources>
-        
+        <!-- Icon for the add photo frame button -->
+        <Grid x:Key="AddPhotoFrameIcon"
+              x:Shared="false">
+            <Path Stretch="Fill"
+                      Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
+                      Data="M4.1561281,2.2702953 L4.8524521,2.2702954 4.8509674,3.963097 5.8969377,3.9630803 5.8969378,5.0916036 4.8524628,5.1061913 4.8524521,6.7843885 4.1561281,6.7843887 4.1559771,5.0877741 3.1116421,5.0916036 3.1116421,3.9630803 4.1556735,3.9654722 4.1561281,2.2702953 z" />
+        </Grid>
     </s:SurfaceWindow.Resources>
     
-    <!-- Actual table on which the photo frames lie -->
-    <s:ScatterView Name="Table" />
+    <Grid>
+        <!-- Structure of the table -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="48" />
+            <RowDefinition />
+            <RowDefinition Height="8" />
+            <RowDefinition />
+            <RowDefinition Height="48" />
+            <RowDefinition Height="8" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Actual table on which the photo frames lie -->
+        <s:ScatterView Name="Table"
+                       Grid.Row="0"
+                       Grid.RowSpan="7"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="7" />
+
+        <!-- Top left button to add a photo frame -->
+        <s:SurfaceButton Name="ButtonAddPhotoFrameTopLeft"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         Padding="4"
+                         Click="CreateNewPhotoFrame" />
+
+        <!-- Top right button to add a photo frame -->
+        <s:SurfaceButton Name="ButtonAddPhotoFrameTopRight"
+                         Grid.Row="1"
+                         Grid.Column="5"
+                         Padding="4"
+                         Click="CreateNewPhotoFrame" />
+
+        <!-- Bottom right button to add a photo frame -->
+        <s:SurfaceButton Name="ButtonAddPhotoFrameBottomRight"
+                         Grid.Row="5"
+                         Grid.Column="5"
+                         Padding="4"
+                         Click="CreateNewPhotoFrame" />
+
+        <!-- Bottom left button to add a photo frame -->
+        <s:SurfaceButton Name="ButtonAddPhotoFrameBottomLeft"
+                         Grid.Row="5"
+                         Grid.Column="1"
+                         Padding="4"
+                         Click="CreateNewPhotoFrame" />
+    </Grid>
 </s:SurfaceWindow>

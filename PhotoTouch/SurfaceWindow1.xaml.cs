@@ -30,9 +30,10 @@ namespace PhotoTouch
         {
             InitializeComponent();
 
-            CreateNewFrame();
-            CreateNewFrame();
-            CreateNewFrame();
+            ((SurfaceButton)FindName("ButtonAddPhotoFrameTopLeft")).Content = FindResource("AddPhotoFrameIcon");
+            ((SurfaceButton)FindName("ButtonAddPhotoFrameTopRight")).Content = FindResource("AddPhotoFrameIcon");
+            ((SurfaceButton)FindName("ButtonAddPhotoFrameBottomRight")).Content = FindResource("AddPhotoFrameIcon");
+            ((SurfaceButton)FindName("ButtonAddPhotoFrameBottomLeft")).Content = FindResource("AddPhotoFrameIcon");
 
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
@@ -113,7 +114,7 @@ namespace PhotoTouch
 
 
 
-        void CreateNewFrame()
+        void CreateNewPhotoFrame(object sender, RoutedEventArgs e)
         {
             // get the table on which the photo frames lie
             ScatterView table = (ScatterView)this.FindName("Table");
