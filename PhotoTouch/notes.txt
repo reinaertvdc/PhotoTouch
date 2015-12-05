@@ -2,10 +2,12 @@
 application in group on the multi-touch table:
 
 1. There is a button to add a photo frame in every corner of the table, to make
-   sure that every user has one within reach.
+   sure that every user has one within reach. A new frame will be created in
+   the neighborhood of the pressed button and will be oriented in its general
+   direction.
 
 2. There is a maximum size for the photo frames, to prevent them from becoming
    rediculously big. (TODO test this)
 
-3. No more than 15 photo frames can be created ad the same time, to prevent the
+3. No more than 15 photo frames can be created at the same time, to prevent the
    table from becoming overcrowded. (TODO implement this)

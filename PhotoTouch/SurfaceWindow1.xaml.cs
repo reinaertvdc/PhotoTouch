@@ -124,8 +124,33 @@ namespace PhotoTouch
             ScatterViewItem frame = (ScatterViewItem)control.FindName("Frame");
             ((Grid)frame.Parent).Children.Remove(frame);
 
+            // get a random rotation and position
+            Random rn = new Random();
+            int randomRotation = rn.Next(0, 90);
+            int randomWidth = rn.Next(0, (int)Width / 2);
+            int randomHeight = rn.Next(0, (int)Height / 2);
+
             // position the photo frame
-            frame.Center = new Point(300, 300);
+            if (((SurfaceButton)sender).Name.Equals("ButtonAddPhotoFrameTopLeft"))
+            {
+                frame.Orientation = 90 + randomRotation;
+                frame.Center = new Point(Width / 2 - randomWidth, Height / 2 - randomHeight);
+            }
+            else if (((SurfaceButton)sender).Name.Equals("ButtonAddPhotoFrameTopRight"))
+            {
+                frame.Orientation = 180 + randomRotation;
+                frame.Center = new Point(Width / 2 + randomWidth, Height / 2 - randomHeight);
+            }
+            else if (((SurfaceButton)sender).Name.Equals("ButtonAddPhotoFrameBottomRight"))
+            {
+                frame.Orientation = 270 + randomRotation;
+                frame.Center = new Point(Width / 2 + randomWidth, Height / 2 + randomHeight);
+            }
+            else if (((SurfaceButton)sender).Name.Equals("ButtonAddPhotoFrameBottomLeft"))
+            {
+                frame.Orientation = 0 + randomRotation;
+                frame.Center = new Point(Width / 2 - randomWidth, Height / 2 + randomHeight);
+            }
 
             // put the photo frame on the table
             table.Items.Add(frame);
