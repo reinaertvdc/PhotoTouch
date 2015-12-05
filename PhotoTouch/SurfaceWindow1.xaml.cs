@@ -119,6 +119,11 @@ namespace PhotoTouch
             // get the table on which the photo frames lie
             ScatterView table = (ScatterView)this.FindName("Table");
 
+            if (table.Items.Count >= 12)
+            {
+                return;
+            }
+
             // create a new photo frame
             PhotoFrame control = new PhotoFrame();
             ScatterViewItem frame = (ScatterViewItem)control.FindName("Frame");
