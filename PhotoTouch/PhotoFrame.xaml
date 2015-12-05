@@ -36,13 +36,6 @@
                   Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
                   Data="F1 M 8.99998,-8.2016e-005L 12,2.99996L 9.99998,2.99996L 9.99998,7.99992L 15,7.99996L 15,6L 18,9L 15,12L 15,9.99996L 9.99998,9.99992L 9.99998,15.0001L 12,15.0001L 8.99996,18.0001L 5.99996,15.0001L 7.99998,15.0001L 7.99998,9.99992L 2.99999,9.99996L 2.99998,12L -1.90735e-005,8.99996L 3.00002,5.99996L 3.00001,7.99996L 7.99998,7.99992L 7.99998,2.99992L 5.99998,2.99992L 8.99998,-8.2016e-005 Z " />
         </Grid>
-        
-        <!-- Icon for the pencil button -->
-        <Grid x:Key="PencilIcon">
-            <Ellipse Width="38"
-                     Height="38"
-                     Fill="#FFFFFF00" />
-        </Grid>
     </UserControl.Resources>
     
     <Grid>
@@ -92,7 +85,8 @@
                 <s:SurfaceButton Name="ButtonDraw"
                                  Grid.Row="3"
                                  Grid.Column="4"
-                                 Padding="4">
+                                 Padding="4"
+                                 Click="SwitchDrawingMode">
                 </s:SurfaceButton>
 
                 <!-- Button to close the photo frame -->
