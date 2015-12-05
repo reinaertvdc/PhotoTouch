@@ -70,6 +70,7 @@
                       Grid.ColumnSpan="7"
                       Grid.Column="1"
                       Grid.RowSpan="1">
+                    <Image Name="Photo" />
                     <s:SurfaceInkCanvas Name="Canvas" />
                 </Grid>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -46,6 +47,11 @@ namespace PhotoTouch
         SurfaceButton buttonDraw;
         SurfaceButton buttonClose;
 
+        // location of photos
+        string photosDir = Environment.GetEnvironmentVariable("public") + @"\Pictures\Sample Pictures";
+
+
+
         public PhotoFrame()
         {
             InitializeComponent();
@@ -69,6 +75,16 @@ namespace PhotoTouch
 
             // set the default drawing color
             SetDrawingColor(Color.FromRgb(255, 0, 0));
+
+            // set the content of the photo frame
+            if (Directory.Exists(photosDir))
+            {
+                string[] files = Directory.GetFiles(photosDir, "*.jpg");
+                if (files.Length > 0)
+                {
+                    Photo.Source = new BitmapImage(new Uri(files[new Random().Next(0, files.Length)]));
+                }
+            }
         }
 
         void SetMode()
