@@ -48,20 +48,23 @@ namespace PhotoTouch
             // get the drawing canvas of the photo frame
             SurfaceInkCanvas canvas = (SurfaceInkCanvas)this.FindName("Canvas");
 
-            // get the mode butten of the photo drame
+            // get the mode butten and draw button of the photo drame
             SurfaceButton buttonMode = (SurfaceButton)this.FindName("ButtonMode");
+            SurfaceButton buttonDraw = (SurfaceButton)this.FindName("ButtonDraw");
 
             // if the canvas is drawable, we are in draw mode, so switch to move mode
             if (canvas.IsHitTestVisible)
             {
                 canvas.IsHitTestVisible = false;
                 buttonMode.Content = FindResource("DrawIcon");
+                buttonDraw.Content = null;
             }
             // otherwise, we are in move mode, so switch to draw mode
             else
             {
                 canvas.IsHitTestVisible = true;
                 buttonMode.Content = FindResource("MoveIcon");
+                buttonDraw.Content = FindResource("PencilIcon");
             }
         }
 

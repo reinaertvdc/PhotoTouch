@@ -25,7 +25,9 @@
 
         <!-- Icon for the erase button -->
         <Grid x:Key="EraseIcon">
-
+            <Path Stretch="Fill" 
+                  Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
+                  Data="F1 M 0.500891,21.1431L 1.87231,18.6184L 10.1914,25.9037C 10.8905,26.5158 11.9534,26.4453 12.5656,25.7463L 28.8125,7.19364L 28.8125,12.4007L 12.9586,31.4896C 11.7713,32.9192 9.64985,33.1157 8.22021,31.9283L 0.946734,25.2718C -0.482872,24.0844 0.000349879,22.4327 0.500891,21.1431 Z M 19.1382,1.0865C 20.3256,-0.343134 21.389,-0.311098 22.8186,0.876265L 28.204,5.33469L 12.4081,23.3724C 11.7959,24.0714 10.7329,24.1419 10.0339,23.5297L 2.86836,17.2547L 19.1382,1.0865 Z " />
         </Grid>
 
         <!-- Icon for the move button -->
@@ -33,6 +35,13 @@
             <Path Stretch="Fill" 
                   Fill="{DynamicResource {x:Static s:SurfaceColors.ButtonForegroundBrushKey}}" 
                   Data="F1 M 8.99998,-8.2016e-005L 12,2.99996L 9.99998,2.99996L 9.99998,7.99992L 15,7.99996L 15,6L 18,9L 15,12L 15,9.99996L 9.99998,9.99992L 9.99998,15.0001L 12,15.0001L 8.99996,18.0001L 5.99996,15.0001L 7.99998,15.0001L 7.99998,9.99992L 2.99999,9.99996L 2.99998,12L -1.90735e-005,8.99996L 3.00002,5.99996L 3.00001,7.99996L 7.99998,7.99992L 7.99998,2.99992L 5.99998,2.99992L 8.99998,-8.2016e-005 Z " />
+        </Grid>
+        
+        <!-- Icon for the pencil button -->
+        <Grid x:Key="PencilIcon">
+            <Ellipse Width="38"
+                     Height="38"
+                     Fill="#FFFFFF00" />
         </Grid>
     </UserControl.Resources>
     
@@ -79,8 +88,8 @@
                                  Click="SwitchMode">
                 </s:SurfaceButton>
 
-                <!-- TODO what does this button do? -->
-                <s:SurfaceButton Name="ButtonOther"
+                <!-- Button to set the drawing style of the photo frame -->
+                <s:SurfaceButton Name="ButtonDraw"
                                  Grid.Row="3"
                                  Grid.Column="4"
                                  Padding="4">
