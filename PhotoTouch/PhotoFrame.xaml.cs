@@ -28,6 +28,7 @@ namespace PhotoTouch
             InitializeComponent();
 
             SwitchMode(this, null);
+            ((SurfaceButton)FindName("ButtonClose")).Content = FindResource("CloseIcon");
         }
 
 
@@ -62,6 +63,14 @@ namespace PhotoTouch
                 canvas.IsHitTestVisible = true;
                 buttonMode.Content = FindResource("MoveIcon");
             }
+        }
+
+        void Close(object sender, RoutedEventArgs e)
+        {
+            // get the actual photo frame
+            ScatterViewItem frame = (ScatterViewItem)this.FindName("Frame");
+
+            ((ScatterView)frame.Parent).Items.Remove(frame);
         }
     }
 }

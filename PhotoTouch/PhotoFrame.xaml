@@ -84,14 +84,14 @@
                                  Grid.Row="3"
                                  Grid.Column="4"
                                  Padding="4">
-
                 </s:SurfaceButton>
 
                 <!-- Button to close the photo frame -->
                 <s:SurfaceButton Name="ButtonClose"
                                  Grid.Row="3"
                                  Grid.Column="6"
-                                 Padding="4">
+                                 Padding="4"
+                                 Click="Close">
                 </s:SurfaceButton>
             </Grid>
         </s:ScatterViewItem>
