@@ -30,6 +30,10 @@ namespace PhotoTouch
         {
             InitializeComponent();
 
+            CreateNewFrame();
+            CreateNewFrame();
+            CreateNewFrame();
+
             // Add handlers for window availability events
             AddWindowAvailabilityHandlers();
         }
@@ -109,47 +113,21 @@ namespace PhotoTouch
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        void OnFrameModeChanged(object sender, RoutedEventArgs e)
+        void CreateNewFrame()
         {
-            ScatterViewItem frame = (ScatterViewItem)((Grid)((SurfaceButton)sender).Parent).Parent;
+            // get the table on which the photo frames lie
+            ScatterView table = (ScatterView)this.FindName("Table");
 
-            SurfaceInkCanvas canvas = (SurfaceInkCanvas)frame.FindName("Canvas");
-            SurfaceButton buttonMode = (SurfaceButton)frame.FindName("ButtonMode");
-            SurfaceButton buttonOther = (SurfaceButton)frame.FindName("ButtonOther");
-            SurfaceButton buttonClose = (SurfaceButton)frame.FindName("ButtonClose");
+            // create a new photo frame
+            PhotoFrame control = new PhotoFrame();
+            ScatterViewItem frame = (ScatterViewItem)control.FindName("Frame");
+            ((Grid)frame.Parent).Children.Remove(frame);
 
-            if (canvas.IsHitTestVisible)
-            {
-                canvas.IsHitTestVisible = false;
-                buttonMode.Content = FindResource("DrawIcon");
-            }
-            else
-            {
-                canvas.IsHitTestVisible = true;
-                buttonMode.Content = FindResource("MoveIcon");
-            }
+            // position the photo frame
+            frame.Center = new Point(300, 300);
+
+            // put the photo frame on the table
+            table.Items.Add(frame);
         }
     }
 }
