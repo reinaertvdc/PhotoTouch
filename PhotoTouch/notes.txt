@@ -7,7 +7,7 @@ application in group on the multi-touch table:
    direction.
 
 2. There is a maximum size for the photo frames, to prevent them from becoming
-   rediculously big. (TODO test this)
+   rediculously big.
 
 3. No more than 12 photo frames can be created at the same time, to prevent the
    table from becoming overcrowded. 

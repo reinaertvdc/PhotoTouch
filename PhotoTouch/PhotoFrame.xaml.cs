@@ -24,11 +24,13 @@ namespace PhotoTouch
     /// </summary>
     public partial class PhotoFrame : UserControl
     {
+        static int ERASE = 0, RED = 1, GREEN = 2, BLUE = 3;
+
         // current mode (true = draw mode, false = move mode)
         bool mode = true;
 
         // current drawing mode (true = pencil, false = erase)
-        bool drawingMode = true;
+        int drawingMode = RED;
 
         // current drawing color
         Color drawingColor;
@@ -73,9 +75,6 @@ namespace PhotoTouch
             // create the icon in the close button
             ((SurfaceButton)FindName("ButtonClose")).Content = FindResource("CloseIcon");
 
-            // set the default drawing color
-            SetDrawingColor(Color.FromRgb(255, 0, 0));
-
             // set the content of the photo frame
             if (Directory.Exists(photosDir))
             {
@@ -111,15 +110,24 @@ namespace PhotoTouch
 
         void SetDrawingMode()
         {
-            if (drawingMode)
-            {
-                buttonDraw.Content = buttonDrawContent;
-                canvas.EditingMode = SurfaceInkEditingMode.Ink;
-            }
-            else
+            buttonDraw.Content = buttonDrawContent;
+            canvas.EditingMode = SurfaceInkEditingMode.Ink;
+            if (drawingMode == ERASE)
             {
                 buttonDraw.Content = FindResource("EraseIcon"); ;
-                canvas.EditingMode = SurfaceInkEditingMode.EraseByPoint;
+                canvas.EditingMode = SurfaceInkEditingMode.EraseByPoint;   
+            }
+            else if (drawingMode == RED)
+            {
+                SetDrawingColor(Color.FromRgb(255, 0, 0));
+            }
+            else if (drawingMode == GREEN)
+            {
+                SetDrawingColor(Color.FromRgb(0, 255, 0));
+            }
+            else if (drawingMode == BLUE)
+            {
+                SetDrawingColor(Color.FromRgb(0, 0, 255));
             }
         }
 
@@ -129,7 +137,7 @@ namespace PhotoTouch
             {
                 return;
             }
-            drawingMode = !drawingMode;
+            drawingMode = (drawingMode + 1) % 4;
             SetDrawingMode();
         }
 
